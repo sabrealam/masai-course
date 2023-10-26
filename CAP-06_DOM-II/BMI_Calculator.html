@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:wght@700&family=Inter:wght@300&family=Noto+Sans+Sogdian&family=Oswald:wght@300&family=Poppins&family=Roboto&family=Ruwudu:wght@600&family=Sometype+Mono:wght@500&family=Tinos:wght@700&family=Varela+Round&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style> 
+    *{
+        margin: 0px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-family: 'Charis SIL', serif;
+font-family: 'Inter', sans-serif;
+font-family: 'Noto Sans Sogdian', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Ruwudu', serif;
+font-family: 'Sometype Mono', monospace;
+font-family: 'Tinos', serif;
+font-family: 'Varela Round', sans-serif;
+    }
+    body{
+        background-color: rgb(245, 245, 245);
+    }
+        #main{ 
+            width: 400px;
+            height: 450px;
+            /* border:2px solid red; */
+            padding: 15px;
+            margin: auto;
+            margin-top: 100px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center; 
+        }
+         
+        #main1{
+            width : 100%; 
+            height : 150px;
+            /* border:2px solid rgb(30, 0, 255); */
+            padding: 20px;
+            display : flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:5px;
+        }
+        input{
+            width : 150px;   
+            height: 75px;  
+            padding: 30px;
+            font-size: 20px;
+            border-radius: 7px;
+
+        }
+        #main1 + button{
+            width : 150px;
+            height: 50px;
+            /* border:2px solid red; */
+            border: none;
+            font-size: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: rgb(63, 255, 194);
+            transition: .7s;
+        }
+        #main1 + button:hover{
+            scale: 1.04;
+        }
+        #main1 + button + div {
+            width : 100%;
+            height: 60px;
+            display : flex;
+            justify-content:space-around;
+            align-items:center;
+            /* border:2px solid red; */
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #main1 + button + div > h4 { 
+            font-size: 20px;
+
+        }
+        #main1 + button + div > h4 + div {
+            font-size: 20px;
+        }
+        p{
+            font-size: 13px;
+        }
+        #res{
+            width : 100%;
+            height: 40px;
+            /* border:2px solid red; */
+            border-radius: 5px;
+            background-color: rgb(201, 140, 255);
+            display : flex;
+            justify-content:center;
+            align-items:center;
+            text-align: left;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"> 
+        <h2>CHECK YOUR BMI TODAY</h2>
+
+         
+         
+        <div>
+
+        </div>
+        <div id = "main1"> 
+        <div> 
+            <p>Enter Youe Weight</p>
+            <input type="number" id="first"  >
+        </div>
+        <div> 
+            <p>Enter Youe Height</p>
+            <input type="number" id="second">
+        </div>
+        
+        </div>
+
+        <button onclick="check()">CHECK</button>
+        <div>
+            <h4>STATUS :</h4>
+            <div id="sta">Sabre alam</div>
+        </div>
+        <div>
+            <div id="res"  >
+                Enter Value And Click Check 
+            </div>
+        </div>
+        <div style="margin-top: 7px; line-height: 20px;">
+            <h5>NOTE :</h5>
+            <P>
+                Enter Your Weight And Height In Kg And Cm Respectively ...
+            </P>
+        </div>
+
+    </div>
+</body>
+<script text="text/javascript">
+     let res1 = document.getElementById('first');
+     let res2 = document.getElementById('second');
+     let print = document.getElementById('res').innerText;
+     let print2 = document.getElementById('sta');
+
+     function check(){
+        let cal = (+res1.value / (+res2.value * +res2.value))* 10000;
+        document.getElementById('res').innerText ='Your BMI Is' + ' - ' + cal.toFixed(4) ;
+
+        if(cal <= 18.4){
+            print2.innerText  = 'UnderWeight';
+        }else if(cal >= 18.5 && cal <= 24.9){
+            print2.innerText = 'Normal Weight';
+        }else if(cal >= 25 && cal <= 29.9){
+            print2.innerText = 'Overweight';
+        }else if(cal >= 30){
+            print2.innerText = 'Obese';
+        }
+     }
+
+</script>
+</html>  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
