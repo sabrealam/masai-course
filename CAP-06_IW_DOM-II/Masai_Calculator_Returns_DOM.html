@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASAI CALCULATOR</title>
+    <style>
+        *{
+            margin: 0px;
+            box-sizing: border-box;
+            padding: 0px;
+        }
+        body{
+            background-color: rgb(246, 246, 246);
+        }
+        #main{  
+        width: 350px;height: 500px;   
+        border:2px solid rgb(211, 211, 211);  
+        margin: auto; border-radius: 7px;
+        margin-top: 50px;
+        background-color: rgb(255, 255, 255);   
+    }
+        #main > div:first-child{
+            width : 80%; height: 50px;
+            border:1px solid red; 
+            margin: auto;margin-top: 25px;
+            display: grid;
+            place-items: center;
+            font-size: 25px;
+            border-radius: 5px; 
+            /* background-color: rgba(121, 255, 132, 0.307);  */
+        }
+        #main > div:nth-child(2){   
+            width: 70%; height: 250px; 
+            /* border:2px solid red;  */
+            margin: auto;
+            display : flex;
+            justify-content:center;align-items:center;
+            margin-top: 20px;
+        }
+        #main > div:nth-child(2) > div:nth-child(1) {
+            width : 80%;height : 80%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+            
+        }
+        #main > div:nth-child(2) > div:nth-child(1) > button {
+            cursor: pointer; 
+            border-radius: 5px;
+            border:1px solid rgb(0, 13, 255);
+        }
+        #main > div:nth-child(2) > div:nth-child(2){
+            width : 100%;height : 100%; 
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+        }
+        #main > div:nth-child(3){
+            width: 90%; height: 50px;
+            /* border:2px solid red; */
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;margin: auto;
+            margin-top: 15px; 
+            }
+        #main > div:nth-child(3) > button {cursor: pointer;}
+        #main > div:nth-child(4){
+            width: 70%; height: 50px;
+            /* border:2px solid red; */
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 10px;margin: auto;
+            margin-top: 15px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="res"></div>
+        <div>
+            <div id="num">
+                <button>1</button><button>2</button>
+                <button>3</button><button>4</button>
+                <button>5</button><button>6</button>
+                <button>7</button><button>8</button>
+                <button>9</button><button>0</button>
+                <!-- <button>=</button><button>C</button> -->
+
+
+            </div>
+        </div>
+        <div id="ope">
+            <button>+</button>
+            <button>-</button>
+            <button>*</button>
+            <button>/</button>
+        </div>
+        <div id="oth">
+            <button>C</button> 
+            <button id="cal">=</button>
+        </div>
+    </div>
+</body>
+<script>
+    let num = document.querySelectorAll('#num > button');
+    let ope = document.querySelectorAll('#ope > button');
+    let oth = document.querySelectorAll('#oth > button'); 
+    let res = document.querySelector('#res');
+    let isfn = true;
+
+
+    let fn = '';
+    let op = '';
+    let ln = '';
+
+    
+    for(let i = 0; i < num.length; i++){
+        num[i].addEventListener('click',function() {
+            if(isfn){
+                fn += num[i].innerText;
+                res.innerText = fn;
+
+            }else{
+                ln += num[i].innerText;
+                res.innerText = ln;
+            }
+        })  
+    }  
+    for(let i = 0; i < ope.length; i++){
+        ope[i].addEventListener('click',function(){
+            isfn = false;
+            op = ope[i].innerText;
+            
+        })
+    }   
+    function cal1(fn,ln,op){
+        switch(op){
+        case '+' : return Number(fn) + Number(ln);
+        case '-' : return Number(fn) - Number(ln);
+        case '*' : return Number(fn) * Number(ln);
+        case '/' : return Number(fn) / Number(ln);   
+    }
+}
+for(let i = 0; i < oth.length; i++){
+oth[i].addEventListener('click',function(){
+    if(oth[i].innerText == '='){
+    res.innerText = cal1(fn,ln,op);
+    fn = ''; 
+    ln = '';
+    op = '';
+    isfn = true;
+
+    }else if(oth[i].innerText == 'C'){
+    fn = ''; ln = '';
+    res.innerText = '';
+    isfn = true;
+                
+
+
+    }
+    })
+
+}
+
+</script>
+</html>
