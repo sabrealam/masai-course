@@ -1,0 +1,67 @@
+/* Fill CSS here */
+body{
+    padding: 50px;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+    color: navy;
+}
+div{
+    width : 100%;
+    height: 700px;
+    /* border:2px solid red; */
+    margin-top: 30px;
+    display : flex;
+    justify-content:space-around;
+}
+form{
+    width: 20%;
+    height : 100%;
+    /* border:2px solid black; */
+    
+}
+form > input{
+    width: 210px;
+    height: 40px;
+    padding: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+form>label{
+    font-size: 18px;
+    line-height: 30px;
+} 
+select{
+    width: 210px;
+    height: 45px;
+    padding: 10px;
+
+}
+table{
+    width: 70%;
+    height : 10%;
+    text-align: center;
+}
+tr>th{
+    font-size: 20px;
+    /* border:1px solid red; */
+    padding: 6px;
+    color: white;
+    background-color: #0567ac;
+}
+#button{
+    width: 210;
+    height: 50px;
+    color: white;
+    background-color: #0567ac;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+ 
