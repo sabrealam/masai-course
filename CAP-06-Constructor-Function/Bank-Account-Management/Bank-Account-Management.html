@@ -47,11 +47,22 @@ let accountHolder2 = new BankAccount(123,'Nikky','saving',500);
 let accountHolder3 = new BankAccount(123,'Alam','saving',0);
 let arr = [accountHolder1,accountHolder2,accountHolder3];
 
+// 1. First We Have 100 Rupees...
 
-console.log(accountHolder1.deposit(100)); 
-console.log(accountHolder1.withdraw(150));   
-console.log(accountHolder1.checkBalance()); 
+
+// 2. We Deposit 100 Rupees Again..
+console.log(accountHolder1.deposit(100));
+
+// 3. Then We Are Withdraw 150 Rupees
+console.log(accountHolder1.withdraw(150));
+
+// 4. We Are Cheacking Balance...
+console.log(accountHolder1.checkBalance());
+
+// 5. Then We Are Cheacking My Acoount InActive Or Active..
 console.log(accountHolder1.isActive()); 
+
+
 // console.log(accountHolder2.deposit(100)); 
 // console.log(accountHolder2.withdraw(50));  
 // console.log(accountHolder2.checkBalance()); 
