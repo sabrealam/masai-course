@@ -10,7 +10,44 @@
     
 </body>
 <script type="text/javascript">
-    
+
+function Author(name,birthYear,nationality ){
+    this.Name        =      name         ;
+    this.BirthYear   =      birthYear    ;
+    this.Nationality =      nationality  ;
+            
+}
+  
+function Book(title,author,genre,price){
+    this.title    =   title  ;
+    this.author   =   author ;
+    this.genre    =   genre  ;
+    this.price    =   price  ;
+
+    this.getBookInfo = function(){
+        return `${title} ${author} ${genre} ${price}`
+    }
+} 
+
+let Author1 = new Author('sabre','21-01-2002','Indian')
+let Author2 = new Author('alam','20-03-2003','Indian')
+
+
+let book = new Book('Milk And Honey',Author1,'Science Fiction',275);
+
+console.log(book);
+
+console.log(book.getBookInfo());
+
+
+
+
+
+
+
+
+
+
 </script>
 </html>
 <script src="./Online-Bookstore.js"></script>
