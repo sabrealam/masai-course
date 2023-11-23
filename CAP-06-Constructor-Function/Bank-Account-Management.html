@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./Bank-Account-Management.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank-Account-Management</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    
+function BankAccount(accountNumber,name,type,balance){
+    this.accountNumber = accountNumber;
+    this.name = name;
+    this.type = type;
+    this.balance = balance;
+    this.deposit = function(dep = 0){
+        this.balance = this.balance + dep;
+         return this.balance;
+    };
+    this.withdraw = function(bal){
+        if(bal <= this.balance && bal >= 1){
+            this.balance = this.balance - bal;
+            return 'Withdraw Succesfull';
+        }else if(bal < 1 || bal > this.balance){
+            return 'Insufficient Balance'; 
+        }else{
+            return 0;
+        }
+    };
+    this.checkBalance = function(){
+        return this.balance;
+    };
+    this.isActive = function(){
+        if(this.balance < 1){
+            return 'Inactive';
+        }else if(this.balance >= 1) {
+            return 'Active';
+        }
+    };
+}
+
+let accountHolder1 = new BankAccount(123,'sabre','saving',100);
+let accountHolder2 = new BankAccount(123,'Nikky','saving',500);
+let accountHolder3 = new BankAccount(123,'Alam','saving',0);
+let arr = [accountHolder1,accountHolder2,accountHolder3];
+
+
+console.log(accountHolder1.deposit(100)); 
+console.log(accountHolder1.withdraw(150));   
+console.log(accountHolder1.checkBalance()); 
+console.log(accountHolder1.isActive()); 
+// console.log(accountHolder2.deposit(100)); 
+// console.log(accountHolder2.withdraw(50));  
+// console.log(accountHolder2.checkBalance()); 
+// console.log(accountHolder2.isActive()); 
+
+function getTotalBalance(){
+    let ttl  = 0;
+    arr.forEach(e=>{
+        if(e.isActive() == 'Active'){ 
+            ttl += e.balance;
+        }
+    })
+    return ttl;
+}
+
+console.log(getTotalBalance());
+
+</script>
+</html>
+<script src="./Bank-Account-Management.js"></script>
