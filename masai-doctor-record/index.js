@@ -2,6 +2,7 @@ let form = document.querySelector('form');
 let root = document.querySelector('#root');
 // let filter = document.querySelector('#filter');
 // obj.filter = filter.value;
+
 let arr = [];
 form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -13,8 +14,7 @@ form.addEventListener('submit', function(e){
     obj.experience = e.target.experience.value;
     obj.email = e.target.email.value;
     obj.mobile = e.target.mobile.value; 
-    
-
+     
     arr.push(obj);
     root.innerHTML = null;
 arr.map((e,i)=>{ 
@@ -46,11 +46,11 @@ arr.map((e,i)=>{
     btn.addEventListener('click', function(){
     ar  = arr.filter((el,j)=>{ 
             // return el.name != el.name;
-            if(el.name == el.name){
+            if(e.name == el.name){
                 tr.innerHTML = null;
             }
         })
-        console.log(ar );
+        tr.innerHTML = null;
     })
 
 
@@ -63,41 +63,4 @@ arr.map((e,i)=>{
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // let name = document.querySelector('#name');
-    // let doctor_id = document.querySelector('#doctor_id');
-    // let specialization = document.querySelector('#specialization');
-    // let experience = document.querySelector('#experience');
-    // let email = document.querySelector('#email');
-    // let mobile = document.querySelector('#mobile');
-    // let filter = document.querySelector('#filter');
+ 
