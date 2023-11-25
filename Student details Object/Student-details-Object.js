@@ -50,9 +50,13 @@ function student_detail(name,roll_no,klass,section,marks_of_5_subjects){
   
  */
 
-let student1 = new student_detail('sabre',123,5,'A',[65,56,75,80,70])
+let student1 = new student_detail('sabre',123,5,'A',[65,56,75,80,70]);
 
 student1.printReportCard()  
-
 student1.printTop3Subjects();
+
+let student2 = new student_detail('Alam' ,455,125,'Z',[1,2,3,4,5]);
+student2.printReportCard()
+student2.printTop3Subjects()
+
  
