@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./Simulation-Game.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation-Game</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+
+function Vehicle(brand, model, speed,  fuelType){
+    this.brand = brand; 
+    this.model = model;
+    this.speed = speed;
+    this.fuelType = fuelType;
+}
+
+Vehicle.prototype.accelerate = function(){
+    this.speed = this.speed + 250; 
+    console.log(`Your Vehicle Speed Is Increased By Then Speed Is ${this.speed -250} To ${this.speed}`); 
+}
+Vehicle.prototype.brake = function(){
+    this.speed = this.speed - 100;
+    console.log(`Your Vehicle Speed Is Decreased By 100 Then Speed Is  ${this.speed}`);
+}
+Vehicle.prototype.refuel = function(){
+    console.log(`Please Wait While vehicle is refueling....`);
+}
+
+
+function Car(brand, model, speed,  fuelType,numberOfWheels){
+    Vehicle.call(this, brand, model, speed, fuelType)
+    this.numberOfWheels = numberOfWheels;
+    this.honk = function(){
+        console.log(`Blow The Horn`);
+    }
+}
+
+
+function Airplane(brand, model, speed,  fuelType,numberOfEngines ,hasLandingGear ){
+        Vehicle.call(this,brand, model,speed,fuelType)
+        this.numberOfEngines = numberOfEngines;
+        this.hasLandingGear = hasLandingGear;
+        
+}
+
+Airplane.prototype.takeOff = function(){
+    console.log(`Aeroplane Is Taking Off`);
+}
+ 
+Object.setPrototypeOf(Car.prototype,Vehicle.prototype)
+Object.setPrototypeOf(Airplane.prototype,Car.prototype)
+
+
+// Creating A Airpalane Object...
+let plane = new Airplane('Air india',2019,36000,'petrolNo1',2,3)
+
+// Here We Are Apply accelerate | break | Refule Methods
+plane.accelerate(); 
+plane.brake(); 
+plane.refuel(); 
+
+
+// Creating A Car Object...
+let car = new Car('Tata',2020,700,'petrol',4);
+
+// Here We Are Apply accelerate | break | Refule Methods
+car.accelerate();
+car.brake();
+car.refuel();
+
+
+</script>
+</html>
+<script src="./Simulation-Game.js"></script>
