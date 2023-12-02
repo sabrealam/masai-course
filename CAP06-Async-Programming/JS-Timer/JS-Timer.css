@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    }
+    body{
+        background-color: rgb(226, 226, 226);
+    }
+    
+    #parent{
+        width: 400px;
+        height: 300px;
+        /* border:2px solid red; */
+        padding: 50px;
+        display : flex; 
+        justify-content:space-evenly;
+        margin: auto;
+        margin-top: 100px;
+        background-color: white;
+        border-radius: 7px;
+    }
+    #parent > div > label {
+        font-size: 12px;
+        margin-left: 7px;
+    }
+    #parent > div > input{
+        width: 60px;
+        height: 30px;
+        margin-top: 10px;
+        padding: 7px;
+    }
+    #btn{
+        width: 330px;
+        margin: auto;
+        /* border:0.1px solid red; */
+        display : flex;
+        justify-content:space-around;
+        margin-top: -80px;
+    }
+    #btn > button{
+        width: 90px;
+        height: 30px; 
+        cursor: pointer;
+    }
