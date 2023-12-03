@@ -8,16 +8,22 @@
 </head>
 <body>
     <div id="parent">
+        <h1>STOPWATCH BY SABRE</h1>
         <div class="main">
+            <div id="label">
+                <div>M</div>
+                <div>S</div>
+                <div>MS</div>
+            </div>
             <div id="r"> 
                 <div id="res">0</div>
                 <div id="sec">0</div>
                 <div id="ms">0</div> 
             </div>
             <div id="btn">
-                <button>START</button>
-                <button>STOP</button>
-                <button>RESET</button>
+                <button id="start" onclick="start()">START</button>
+                 
+                <button onclick="reset()">RESET</button>
             </div>
         </div>
     </div>
