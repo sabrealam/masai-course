@@ -4,13 +4,13 @@
     <link rel="stylesheet" href="./JS-Timer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Js Timer</title>
+    <title>Document</title>
 </head>
 <body>
     <div id="parent">
         <div>
             <label for="HOURS">HOURS</label><br>
-            <input type="number" name="HOURS" id="hours"><br>
+            <input type="number" name="HOURS" id="hours"  ><br>
         </div>
         <div>
             <label for="minute">MINUTE</label><br>
@@ -18,17 +18,23 @@
         </div>
         <div>
             <label for="second">SECOND</label><br> 
-            <input type="number" id="second">
+            <input type="number" id="second" >
         </div>
         
        </div>
+       <div class="count">
+        <div id="h">0</div>
+        <div id="m">0</div>
+        <div id="s">0</div>
+       </div>
         <div id="btn">
             <button onclick="start()">START</button>
-            <button onclick="pause()">PAUSE</button>
+            <button onclick="pause()" id="pause">PAUSE</button>
             <button onclick="stop()">RESET</button>
-        </div>
-</body>
+        </div> 
+</body>  
 <script type="text/javascript">
+    
 
 </script>
 </html>
