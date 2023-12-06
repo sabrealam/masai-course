@@ -1,5 +1,4 @@
 
-
 let h = document.querySelector('#h');
 let m = document.querySelector('#m'); 
 let s = document.querySelector('#s');
@@ -8,19 +7,17 @@ let hours = document.querySelector('#hours');
 let minute = document.querySelector('#minute');
 let set; 
 let count = 0; 
-let err = 0;
+let secnod = 60; 
+let str = 0;
 
-
-
-function start(){ 
-    err++;
+function start(){
+    str++;
+    if(str == 1){ 
 let hours = document.querySelector('#hours').value;
 let minute = document.querySelector('#minute').value;
-    let secnod = 60; 
-    // if(err == 1){ 
     if(hours == '' && minute >=1 ){
          m.innerHTML = minute;
-        set = setInterval(()=>{
+        set = setInterval(()=>{ 
             s.innerHTML = secnod--; 
             if(s.innerHTML <= 0){
                 secnod = 60; 
@@ -51,7 +48,6 @@ let minute = document.querySelector('#minute').value;
             if(hours <= 0 && minute <= 0){
                 m.innerHTML = 0;
                 h.innerHTML = 0;
-                
                 clearInterval(set)
             }  
               
@@ -75,50 +71,41 @@ let minute = document.querySelector('#minute').value;
                clearInterval(set)
                m.innerHTML = 60;  
                 set = setInterval(() => {
-                    s.innerHTML = secnod--;  
+                s.innerHTML = secnod--;  
             if(s.innerHTML <= 0){ 
                 secnod = 60;  
                 m.innerHTML = minute--;  
             }if(m.innerHTML <= 0){
-                 clearInterval(set) 
-                     
+                 clearInterval(set)  
               }   
-             
                 }, 1000);  
              } 
- 
         },1000)
-    } 
-// }         
-}  ;
-   
-
-
-
+    }   
+}    
+};
+ 
 function pause(){
-   count++;
-   if(count % 2 == 1){
-    paus.innerHTML = 'RESUME'; 
     clearInterval(set)
+    count++;
+    console.log(check)
+   if(count % 2 == 1){
+    paus.innerHTML = 'RESUME';  
    }else if(count % 2 == 0){
        paus.innerHTML = 'PAUSE';  
        hours = h.innerHTML;
        minute = m.innerHTML; 
        start();  
-   } 
-  
- }
- 
- 
- 
- 
- function stop(){ 
+   }  
+} 
+
+function stop(){ 
      m.innerHTML = 0;
      h.innerHTML = 0;
      s.innerHTML = 0;  
      clearInterval(set)  
      location.reload();
- } 
+} 
   
  
   
