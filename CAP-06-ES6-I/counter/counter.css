@@ -1,0 +1,7 @@
+.main{
+    width  : 300px;
+    height : 150px;
+    border : 2px solid blue;
+    display : grid ; place-items : center ;
+    margin: auto;margin-top: 50px;
+    }
