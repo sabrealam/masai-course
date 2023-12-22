@@ -1,14 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./Automobile-Inheritance.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automobile-Inheritance</title>
+    <title>Prototypal Inheritence</title>
 </head>
 <body>
     
 </body>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+
+//::::::::::::  USING CONTRUCTOR FUNCTION   ::::::::::::\\
+
+
+
+//  INTERIOR PART ....
+
+function Interior(soundsystem,touchscreen,airbags){
+    this.soundsystem = soundsystem;
+    this.touchscreen = touchscreen;
+    this.airbags = airbags;
+}
+
+//  EXTERIOR PART  ....
+
+function Exterior(foglamps,headlamps,groundclearence,soundsystem,touchscreen,airbags){
+    Interior.call(this,soundsystem,touchscreen,airbags)
+    this.foglamps = foglamps;
+    this.headlamps = headlamps;
+    this.groundclearence = groundclearence;
+}
+
+//  FEATURES PART AND ADDING METHOD
+
+function Feature(color,type){
+    this.color = color;
+    this.type = type;
+}
+
+
+//  PROTOTYPE SET ....
+
+Object.setPrototypeOf(Interior.prototype,Exterior.prototype)
+
+
+//  SPECIFICATION PART ....
+
+function specification(wheeldrive,cc,enginetype,foglamps,headlamps,groundclearence,soundsystem,touchscreen,airbags,color,type){
+    Exterior.call(this,foglamps,headlamps,groundclearence,soundsystem,touchscreen,airbags,color,type)
+    Feature.call(color,type);
+    this.wheeldrive = wheeldrive;  
+    this.cc = cc;
+    this.enginetype = enginetype; 
+    
+}
+
+specification.prototype.price = function(){
+    console.log(1928645);
+}
+
+
+//  Auto Is Being Ready Wait ....
+
+function auto(wheeldrive,cc,enginetype,foglamps,headlamps,groundclearence,soundsystem,touchscreen,airbags,color,type){
+    specification.call(this,wheeldrive,cc,enginetype,foglamps,headlamps,groundclearence,soundsystem,touchscreen,airbags,color,type)
+    Feature.call(color,type)
+}
+ 
+Object.setPrototypeOf(auto.prototype,specification.prototype)
+ 
+//  Your Auto Is Ready To Go.....
+
+let auto1 = new auto('4 Wheel Drive','4680 CC ','Petrol',4,2,'200 mm','JBL','YES',6,'RED','DualTone')
+ 
+//  Calling Properties And Methods
+
+console.table(auto1.airbags); // Can Also Use Console.log
+auto1.price() 
+ 
+
+
+
+//::::::::::::  USING OBJECT.CREATE   ::::::::::::\\
+
+
+
+
+let interior1 = {
+    soundsystem : 'JBL',
+    sunroof     : 'glass',
+    touchscreen : 'LCD' ,
+    airbags     : 'Six'
+}
+
+let exterior1 = Object.create(interior1);
+exterior1.foglamps = 'FOUR';
+exterior1.headlamps = 'TWO';
+
+let specification1 = Object.create(exterior1);
+specification1.wheeldrive = 'Four Wheel Drive';
+specification1.cc = '1640 CC';
+specification1.enginetype = 'Petrol';
+
+let auto2 = Object.create(specification1);
+auto2.color = 'Red';
+auto2.type  = 'Single Tone';
+
+ 
+console.log(auto2.airbags);  
+
+ 
+
+
+</script>
 </html>
-<script src="./Automobile-Inheritance.js"></script>
