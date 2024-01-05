@@ -27,24 +27,26 @@
                 div{
                     width: 100px;height: 100px;
                     border:2px solid black;
+                    
+                }
+                div:first-Child{
+                    background-color: red;
+                }
+                div:nth-Child(2){
+                    background-color: #ffff00;
+                }
+                div:nth-Child(3){
+                    background-color: #008000;
+                }
+                div:last-Child{
+                    background-color: #800080;
                 }
                 
             }
             .one::before{
                         content: 'Parent';
                     }
-            .box1{
-                background-color: red;
-            }
-            .box2{
-                background-color: #ffff00;
-            }
-            .box3{
-                background-color: #008000;
-            }
-            .box4{
-                background-color: #800080;
-            }
+             
          
     </style>
   </head>
@@ -57,10 +59,10 @@
         let root = React.createElement('div',{className:"one"},
             React.createElement('div',{className:"two"},
             [
-            React.createElement('div',{className:'box1'},'1'),
-            React.createElement('div',{className:'box2'},'2'),
-            React.createElement('div',{className:'box3'},'3'),
-            React.createElement('div',{className:'box4'},'4'),
+            React.createElement('div',{},'1'),
+            React.createElement('div',{},'2'),
+            React.createElement('div',{},'3'),
+            React.createElement('div',{},'4'),
         ])
         );
 
