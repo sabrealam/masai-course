@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React FlexBox</title>
+    <style> 
+    *{
+        font-size: 30px;
+    }
+            .one{
+                width: 100%;
+                height: 150px;
+                border:2px solid black;
+                display : flex; 
+                background-color: #ffe4c4;
+                
+                
+                
+            }
+            .two{
+                width: 500px; 
+                display : flex;
+                justify-content:space-between;
+                align-items:center;
+                margin: auto;
+                div{
+                    width: 100px;height: 100px;
+                    border:2px solid black;
+                }
+                
+            }
+            .one::before{
+                        content: 'Parent';
+                    }
+            .box1{
+                background-color: red;
+            }
+            .box2{
+                background-color: #ffff00;
+            }
+            .box3{
+                background-color: #008000;
+            }
+            .box4{
+                background-color: #800080;
+            }
+         
+    </style>
+  </head>
+  <body> 
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel"></script>
+    <script>
+        let root = React.createElement('div',{className:"one"},
+            React.createElement('div',{className:"two"},
+            [
+            React.createElement('div',{className:'box1'},'1'),
+            React.createElement('div',{className:'box2'},'2'),
+            React.createElement('div',{className:'box3'},'3'),
+            React.createElement('div',{className:'box4'},'4'),
+        ])
+        );
+
+        let rend = ReactDOM.createRoot(document.body)
+        rend.render(root)
+    </script>
+  </body>
+</html>
