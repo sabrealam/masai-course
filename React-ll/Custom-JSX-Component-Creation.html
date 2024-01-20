@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom JSX Component Creation</title>
+    <style>
+        body{
+            width : 100%;height: 100vh;
+            margin: 0px;
+            div{
+                display : grid ; place-items : center ;
+                font-size: 50px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+        }
+      .first {
+       width : 100%;height: 10vh;
+       background-color: lightblue;
+      }
+      .second {
+       width: 100%; height: 60vh;
+       background-color: lightcoral;
+       display: block; 
+      }
+      .third {
+        width : 100%;height: 30vh;
+        background-color: lightgreen;
+      }
+      .define{
+        font-size: 20px;
+        margin-left: 10px;
+        
+      }
+      .define+p {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your task starts here
+
+    function Header(props){
+        return (
+            <>
+            <div className = "first">HEADER</div>
+            </>
+        )
+    }
+    function Content(props){
+        return (
+            <>
+            <div className = "second">CONTENT
+              <Define/>
+              </div>
+            
+            </>
+        )
+    }
+    function Define(){
+      return (
+        <>
+        <h3 className= "define">Nested Components: </h3>
+        <p>It's Important to use nested Components as we need. To make nested Components first we have create a functional componenet
+          and inside the return re return the body of the component and finally make this component in the Parent Components in React Way     
+           Creating Component and All Set ... </p>
+           <h3 className = "define" >How Babel transpiles your JSX code into JavaScript</h3>
+           <p> It's Basically create an envoirment to create HTML tag using React API and then transpile it into JavaScript 
+            it converting JSX syntax, which resembles HTML in React, into equivalent JavaScript function calls...
+            </p>
+        </>
+      )
+    }
+    function Footer(props){
+        return (
+            <>
+            <div className = "third">FOOTER</div>
+            </>
+        )
+    }
+function App(){
+    let state = React.useState(0);
+    return (
+        <>
+        <Header name = "Sabre" />
+        <Content name = "Sabre" />
+        <Footer name = "Sabre" />
+        </>
+    )
+}
+
+    let root = ReactDOM.createRoot(document.querySelector('#root'));
+    root.render(<App/>)
+  </script>
+</html>

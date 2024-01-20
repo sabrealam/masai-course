@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSX Syntax Deep Dive</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  // Your task starts here
+  function JSXShowcase() {
+    let variable = 12500;
+    let array = [1,2,3,4,5];
+    function phunction(){ 
+      let isLoggedIn = true;
+      isLoggedIn ? alert('Yes Logged In') : alert('No Logged In');
+       
+    }
+    return (
+      <React.Fragment>
+        <div>This Is A Variable = {variable}</div>
+        <p> This Is An array =  {array}</p>
+        <button onClick = {phunction} >Click To Call A Function</button>
+        <p>Conditional Rendering Are Apply On the Button If The Condition is true it alert "logged in" else "not logged in"</p>
+      </React.Fragment>
+    )
+
+
+  }
+  let root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<JSXShowcase />)
+</script>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Create React Element with JSX</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+// Note :- Please Open Any One Task At A Time ...
+
+    // Your task starts here
+    // 1.  Basic Level: Simple JSX Element
+
+    // let element = <p>Seize the day</p>;
+    // let root = ReactDOM.createRoot(document.querySelector('#root'));
+    // root.render(element)
+
+
+
+
+
+    // 2. Intermediate Level: Dynamic Content in JSX
+
+    // let string = "Seize the day";
+    // let element = <p>{string}</p>;
+    // let root = ReactDOM.createRoot(document.querySelector('#root'));
+    // root.render(element)
+
+
+
+
+    
+
+    // 3. Advanced Level: Conditional Rendering in JSX
+
+    function App(){
+        let booleanValue = true;
+    
+        // For True Case 
+        let trueString = "Seize the day";
+    
+        // For False Case
+        let falseString = "Get lost";
+        return (
+            <>
+                <p>{booleanValue ? trueString : falseString}</p>
+            </>
+        )    
+    }    
+
+
+    // Creating Root Element Using ReactDOM
+    let root = ReactDOM.createRoot(document.querySelector('#root'));
+
+    // Render The Element Using Render Method
+    root.render(<App/>)
+  </script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greeting</title>
+  <style>
+    .card{
+      width: 150px;
+      height: 100px; 
+      margin: auto;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  // Code goes here
+function Card({personName,customMessage,color}) {
+  return (
+    <>
+    <div className = "card" style = {{backgroundColor : color}} > {personName} {customMessage} </div>
+    </>
+  )
+}
+  function BirthdayCard() {
+    let [personName, setPersonName] = React.useState();
+    let [customMessage, setCustomMessage] = React.useState();
+    let [color , setColor] = React.useState( );
+    let handleForm = (event) => { 
+      event.preventDefault();
+      setPersonName("Happy Birthday" + " " +event.target[0].value);
+      setCustomMessage(event.target[1].value);
+    let color=   event.target[0].value.length > 5 ? "gray" : "lightblue";
+    setColor(color);
+    }
+    
+    return (
+      <>
+        <form action="" onSubmit={handleForm} >
+          <input type="text" placeholder="Enter Name" /><br /><br />
+          <input type="text" placeholder="Enter Message" /><br /><br />
+          <button type="submit" >Send Greeting</button>
+        </form>
+        <Card personName = {personName} customMessage = {customMessage} color = {color} />
+      {/*<div className = "card" > {personName} {customMessage} </div>*/}
+      </>
+    )
+  }
+  let root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<BirthdayCard />);
+
+
+</script>
+
+</html>

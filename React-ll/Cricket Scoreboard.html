@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket Scoreboard</title>
+    <style>
+        body{
+            width : 100%;height: 100vh;
+            display : grid ; place-items : center ;
+            background-color: rgb(49, 49, 49);
+            color:white;
+        }
+        *{
+            margin: 0px;
+        }
+        .card{
+            width : 300px;height: 300px;
+            border:2px solid white;
+            border-radius: 5px;
+            margin: auto;
+            display : grid ; place-items : center ;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Code goes here
+
+
+    function CricketScoreboard({runs, wickets,setRun , setWicket }) { 
+        return (
+            <>
+                <div className = "card" >
+                    <h3>Runs :- {runs}   </h3>
+                    <h3>Wickets :- {wickets} </h3>
+                    <button onClick={()=>setRun(4)} >Increase runs by 4</button> <br/> 
+                    <button onClick={()=>setRun(8)}>Increase runs by 8</button> <br/> 
+                    <button onClick={()=>setRun(3)}>Increase runs by 3</button> <br/> 
+                    <button onClick = {()=>setWicket()} >Wickets + </button> <br/>
+                </div>
+            </>
+        )
+    }
+
+    function App() {
+        let [runs , setRuns] = React.useState(0);
+        let [wickets , setWickets] = React.useState(0);
+        function setWicket(){
+            wickets >= 10  ? (alert('Match Over') , setWickets(0) , setRuns(0)) : setWickets(wickets + 1)
+            // setWickets(wickets + 1)
+        }
+        function setRun(newRuns){
+            setRuns(runs + newRuns)
+        }
+        return (
+            <>
+                <CricketScoreboard setRun = {setRun} setWicket = {setWicket}  runs = {runs} wickets = {wickets} />
+            </>
+        )
+    }
+
+
+    let root = ReactDOM.createRoot(document.querySelector('#root'));
+    root.render(<App />)
+</script>
+
+</html>

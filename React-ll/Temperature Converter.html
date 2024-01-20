@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Code goes here
+    
+    function Tempreture(){
+        let [celcius,setCelcius]  = React.useState(); 
+        let [fahrenheit, setFahrenheit] = React.useState();
+
+        let setfar  = (f => f * (9/5) + 32)
+        let setcel = (c => (c-32) * (5/9) )
+
+        let celciusHandler = (event)=>{
+          let value = event.target.value;
+          setCelcius(value);
+          setFahrenheit(value === '' ? ''  : setfar(value) )
+        }
+
+
+        let fahrenheitHandler = (event)=>{ 
+            let value = event.target.value;
+            setFahrenheit(value);
+            setCelcius(value === '' ? '' : setcel(value));
+
+        } 
+        return (
+            <>
+            <input type="number"  placeholder = "Enter Celsius "    onChange = {celciusHandler} value = {celcius}  /><br/><br/>
+            <input type="number" placeholder = "Enter Fahrenheit"    onChange = {fahrenheitHandler} value = {fahrenheit} /><br/><br/>
+            <button disabled >Convert</button>
+            </>
+        )
+    }
+    let root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<Tempreture/>);
+    
+ 
+  </script>
+</html>

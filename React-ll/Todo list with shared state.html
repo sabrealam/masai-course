@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo list with shared state</title>
+</head>
+<style>
+  body {
+    margin: 0px;
+  }
+
+  .todo {
+    width: 100%;
+    height: 100vh;
+    background-color: lightpink;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .todo>div:first-child {
+    border: none;
+  }
+
+  .todo>div {
+    padding: 10px;
+    border: 1px solid red;
+  }
+
+  .bar {
+    width: 350px;
+    height: 150px;
+    position: absolute;
+    border-radius: 15px;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    input {
+      width: 90%;
+      height: 60px;
+      border: none;
+      border-radius: 15px;
+      font-size: 20px;
+      padding: 10px;
+      outline: none;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    button {
+      width: 90px;
+      height: 30px;
+      cursor: pointer;
+    }
+  }
+</style>
+
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+
+
+  function TodoList() {
+    let [todo, setTodo] = React.useState();
+    let [list,setList] = React.useState([]);
+    let handleInputChange = (event) => {
+      setTodo(event.target.value)
+    }
+    let addToDo = () => {
+      let todo = {
+        ...todo,
+        
+      }
+    }
+    return (
+      <>
+        <div className="todo">
+          <div class="bar">
+            <input type="text" name="" id="" placeholder="Note A ToDo" onChange={handleInputChange} value={todo} /> <br /><br />
+            <div className="btn" >
+              <button onClick={addToDo} >AddToDo</button>
+              <button>ToDoList</button>
+            </div>
+          </div>
+          <div> {todo} </div>
+        </div>
+      </>
+    );
+  }
+  let root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<TodoList />);
+</script>
+
+</html>
