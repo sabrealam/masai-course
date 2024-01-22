@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Boilerplate Code</title>
+    <style>
+        .card{
+            border: 2px solid blue ;
+            width : 200px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // Your React code will go here
+        function User({name,age,email}) {
+            return (
+                <>
+                    <p>Name   : {name} </p>
+                    <p>Age    : {age} </p>
+                    <p>E-Mail : {email} </p>
+                </>
+            )
+        }
+
+        function ScoreCard(props) {
+            return (
+                <>
+                    <h4>Score : {props.score} </h4>
+                </>
+            )
+        }
+
+        function ContainerWithBlueBorder({prop : {children}} ) { 
+           
+            return (
+                <>
+                <div className = "card"  >
+                     
+                    </div>
+                </>
+            )
+        }
+        function App() {
+            return (
+                <> 
+                <ContainerWithBlueBorder>
+                    <User name = "Sabre Alam" age = "22" email = "s@b.com" />
+                    <ScoreCard/>
+                    </ContainerWithBlueBorder>
+                </>
+            )
+        }
+        let root = ReactDOM.createRoot(document.querySelector('#root'));
+
+        root.render(<App />)
+    </script>
+</body>
+
+</html>

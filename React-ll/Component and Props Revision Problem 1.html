@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Superhero Card</title>
+    <style>
+        body{
+            box-sizing: border-box; 
+            
+        }
+        #root {
+            display : flex;
+            flex-wrap: wrap;
+        }
+        .card{
+            width: 200px;
+            height: 250px;
+            border:1px solid black;
+            border-radius: 5px;  
+            margin: 10px;
+             
+            
+        }
+        .card > img{
+            width : 100%;height: 100px;
+        }
+        h4,h5,p{
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+ 
+    function SuperheroCard( { superhero : {name , age , imageUrl ,powers , isBachelor }      } ) { 
+          let textStyle = {
+            color : isBachelor ? "red" : "green"
+          } 
+        return (
+
+            <div className = "card" style = {textStyle} >
+                 <img src= {imageUrl}  alt=""/>
+                 <h4>Name : {name}</h4>
+                 <h5>Age  : {age}</h5>
+                 <p>Powers : {powers.join(', ')}</p>
+                 <p>isBachelor : {isBachelor ? 'Yes' : 'No'}</p>
+            </div>
+        )
+    }
+
+    function App() {
+        let superheroes = [
+            {
+                name: "Batman",
+                powers: ["Rich", "Fly", "Genius"],
+                address: {
+                    street: "Gotham St",
+                    city: "Gotham",
+                    country: "USA",
+                },
+                age: 21,
+                isBachelor: true,
+                imageUrl:
+                    "https://rukminim2.flixcart.com/image/850/1000/poster/7/d/g/batman-portrait-bt455566-medium-original-imaekp86fhb3fhxf.jpeg",
+            },
+            {
+                name: "Superman",
+                powers: ["Laser Fry", "Fly", "Runs Fast"],
+                address: {
+                    street: "Central St",
+                    city: "New York",
+                    country: "USA",
+                },
+                age: 41,
+                isBachelor: false,
+                imageUrl:
+                    "https://c8.alamy.com/comp/2R7EMM0/portrait-of-a-drawing-of-superman-superhero-warner-dc-and-comics-concept-2R7EMM0.jpg",
+            },{
+                name: "Batman",
+                powers: ["Rich", "Fly", "Genius"],
+                address: {
+                    street: "Gotham St",
+                    city: "Gotham",
+                    country: "USA",
+                },
+                age: 21,
+                isBachelor: true,
+                imageUrl:
+                    "https://rukminim2.flixcart.com/image/850/1000/poster/7/d/g/batman-portrait-bt455566-medium-original-imaekp86fhb3fhxf.jpeg",
+            },
+            {
+                name: "Superman",
+                powers: ["Laser Fry", "Fly", "Runs Fast"],
+                address: {
+                    street: "Central St",
+                    city: "New York",
+                    country: "USA",
+                },
+                age: 41,
+                isBachelor: false,
+                imageUrl:
+                    "https://c8.alamy.com/comp/2R7EMM0/portrait-of-a-drawing-of-superman-superhero-warner-dc-and-comics-concept-2R7EMM0.jpg",
+            },{
+                name: "Batman",
+                powers: ["Rich", "Fly", "Genius"],
+                address: {
+                    street: "Gotham St",
+                    city: "Gotham",
+                    country: "USA",
+                },
+                age: 21,
+                isBachelor: true,
+                imageUrl:
+                    "https://rukminim2.flixcart.com/image/850/1000/poster/7/d/g/batman-portrait-bt455566-medium-original-imaekp86fhb3fhxf.jpeg",
+            },
+            {
+                name: "Superman",
+                powers: ["Laser Fry", "Fly", "Runs Fast"],
+                address: {
+                    street: "Central St",
+                    city: "New York",
+                    country: "USA",
+                },
+                age: 41,
+                isBachelor: false,
+                imageUrl:
+                    "https://c8.alamy.com/comp/2R7EMM0/portrait-of-a-drawing-of-superman-superhero-warner-dc-and-comics-concept-2R7EMM0.jpg",
+            },{
+                name: "Batman",
+                powers: ["Rich", "Fly", "Genius"],
+                address: {
+                    street: "Gotham St",
+                    city: "Gotham",
+                    country: "USA",
+                },
+                age: 21,
+                isBachelor: true,
+                imageUrl:
+                    "https://rukminim2.flixcart.com/image/850/1000/poster/7/d/g/batman-portrait-bt455566-medium-original-imaekp86fhb3fhxf.jpeg",
+            },
+            {
+                name: "Superman",
+                powers: ["Laser Fry", "Fly", "Runs Fast"],
+                address: {
+                    street: "Central St",
+                    city: "New York",
+                    country: "USA",
+                },
+                age: 41,
+                isBachelor: false,
+                imageUrl:
+                    "https://c8.alamy.com/comp/2R7EMM0/portrait-of-a-drawing-of-superman-superhero-warner-dc-and-comics-concept-2R7EMM0.jpg",
+            },{
+                name: "Batman",
+                powers: ["Rich", "Fly", "Genius"],
+                address: {
+                    street: "Gotham St",
+                    city: "Gotham",
+                    country: "USA",
+                },
+                age: 21,
+                isBachelor: true,
+                imageUrl:
+                    "https://rukminim2.flixcart.com/image/850/1000/poster/7/d/g/batman-portrait-bt455566-medium-original-imaekp86fhb3fhxf.jpeg",
+            },
+            {
+                name: "Superman",
+                powers: ["Laser Fry", "Fly", "Runs Fast"],
+                address: {
+                    street: "Central St",
+                    city: "New York",
+                    country: "USA",
+                },
+                age: 41,
+                isBachelor: false,
+                imageUrl:
+                    "https://c8.alamy.com/comp/2R7EMM0/portrait-of-a-drawing-of-superman-superhero-warner-dc-and-comics-concept-2R7EMM0.jpg",
+            },
+        ];
+
+        return( 
+        <>
+        {superheroes.map((superhero, index) => (
+            <SuperheroCard key={index} superhero={superhero} />
+        ))}
+            
+        </>)
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+</html>
+<!--  <SuperheroCard superheroes={superheroes}  /> -->
