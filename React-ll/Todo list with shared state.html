@@ -7,8 +7,13 @@
   <title>Todo list with shared state</title>
 </head>
 <style>
+  *{
+  margin: 0px;  padding: 0px;
+  box-sizing: border-box;
+  }
   body {
     margin: 0px;
+   
   }
 
   .todo {
@@ -19,6 +24,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    padding: 20px;
   }
 
   .todo>div:first-child {
@@ -27,9 +33,9 @@
 
   .todo>div {
     padding: 10px;
-    border: 1px solid red;
-  }
-
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;  
+  } 
   .bar {
     width: 350px;
     height: 150px;
@@ -80,28 +86,43 @@
 
 
   function TodoList() {
-    let [todo, setTodo] = React.useState();
-    let [list,setList] = React.useState([]);
+    let [list, setList] = React.useState([]);
+    let [todo, setTodo] = React.useState({
+      title: "",
+      isCompleted: false
+    });
     let handleInputChange = (event) => {
-      setTodo(event.target.value)
-    }
-    let addToDo = () => {
-      let todo = {
+      let value = event.target.type === "checkbox" ? event.target.checked : event.target.value
+      setTodo({
         ...todo,
-        
-      }
+        [event.target.name]: value
+      })
     }
     return (
       <>
         <div className="todo">
-          <div class="bar">
-            <input type="text" name="" id="" placeholder="Note A ToDo" onChange={handleInputChange} value={todo} /> <br /><br />
+          <div className="bar">
+            <input type="text" name="title" id="" placeholder="Note A ToDo" onChange={handleInputChange} /> <br /><br />
+            <input type="checkbox" name="isCompleted" onChange={handleInputChange} id="" />
             <div className="btn" >
-              <button onClick={addToDo} >AddToDo</button>
-              <button>ToDoList</button>
+              <button onClick={() => {
+                setList([...list, todo])
+                setTodo({
+                  ...todo,
+
+                  title: "",
+                  isCompleted: false
+
+                })
+              }} >AddToDo</button>
+
             </div>
           </div>
-          <div> {todo} </div>
+
+          {list.map((item, index) => {
+            return <div className = "wow" key={index}>{item.title}</div>
+          })}
+
         </div>
       </>
     );
