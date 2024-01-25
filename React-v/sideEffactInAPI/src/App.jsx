@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState } from "react";
+import "./App.css";
+import PostItem from "./components/PostItem";
+import { useEffect } from "react";
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  async function MakeAPICall() {
+    let response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`);
+    let data = await response.json(); 
+    setData(data);
+  }
+  useEffect(() => {
+    MakeAPICall(); // Call The Funtion After Completing Mounting Phase
+  }, [page]);
+  
+  let handleInc = ()=>{
+    page <= 9 ? setPage(page+1)  :  setPage(1) 
+    console.log(page);
+   MakeAPICall();
+  }
+  let handleDec = ()=>{
+    page <=  1 ? setPage(10)  :  setPage(page - 1) 
+    console.log(page);
+   MakeAPICall();
+  }
+
+let stl = {
+  color : " "
+
 }
 
-export default App
+
+
+  return (
+    <div className="main">
+      <div
+        style={{
+          background: "crimson",
+          textAlign: "center",
+          width: "100%",
+          height: "80px",
+          display: "grid",
+          placeItems: "center",
+          position: "sticky",
+          top: "0px",
+        }}
+      >
+        <h1>Automatic Data Fetch on Component Mount:</h1>
+      </div>
+      <PostItem data={data} />
+      <div id="pagination">
+        <p onClick={handleDec}  style={stl}    >Prev</p>
+        <p>{page}</p>
+        <p onClick={handleInc} >Next</p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
